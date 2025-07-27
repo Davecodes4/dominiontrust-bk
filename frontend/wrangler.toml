@@ -4,11 +4,6 @@ compatibility_date = "2024-01-01"
 # Cloudflare Pages configuration for Next.js
 pages_build_output_dir = ".next"
 
-[build]
-command = "npm run build:cloudflare"
-cwd = ""
-watch_dir = "src"
-
 # Environment variables for production
 [env.production.vars]
 NODE_ENV = "production"
