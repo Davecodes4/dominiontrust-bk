@@ -42,15 +42,6 @@ const nextConfig: NextConfig = {
     return config;
   },
   
-  // For client-side routing compatibility
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: process.env.NEXT_PUBLIC_API_URL + '/api/:path*',
-      },
-    ];
-  },
   /* config options here */
 };
 
