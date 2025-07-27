@@ -5,8 +5,29 @@ node_modules/
 # Production builds
 frontend/.next/
 frontend/out/
+frontend/.vercel/
+frontend/dist/
 backend/staticfiles/
 backend/media/
+
+# Build caches and artifacts
+frontend/.next/cache/
+frontend/.next/static/chunks/
+frontend/.next/trace/
+frontend/.next/build-manifest.json
+frontend/.next/export-marker.json
+frontend/.next/images-manifest.json
+frontend/.next/prerender-manifest.json
+frontend/.next/routes-manifest.json
+frontend/.next/server/
+frontend/cache/
+.vercel/
+.next/cache/
+cache/
+
+# Webpack and build artifacts
+*/cache/
+**/cache/webpack/
 
 # Environment variables
 .env

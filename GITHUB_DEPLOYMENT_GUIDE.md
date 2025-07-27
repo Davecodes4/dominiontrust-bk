@@ -38,12 +38,15 @@ Your repository has been successfully created and deployed:
 4. Choose your GitHub repository: `Davecodes4/dominion-trust-bank`
 5. Configure build settings:
    - **Framework preset**: Next.js
-   - **Build command**: `cd frontend && npm ci && npm run build`
+   - **Build command**: `cd frontend && npm ci && npm run build:cloudflare`
    - **Build output directory**: `frontend/.next`
    - **Root directory**: `/` (leave empty)
    - **Node.js version**: 18.17.0
 
-**⚠️ Important**: If you see an error about `wrangler.toml`, ignore the file during setup. Cloudflare Pages will use the build settings you specify in the dashboard, not the wrangler.toml file.
+**⚠️ Important**: 
+- Use the custom `build:cloudflare` command to clean cache files
+- This prevents file size limit errors on Cloudflare Pages
+- If you see an error about `wrangler.toml`, ignore the file during setup
 
 ### 2.2 Environment Variables
 Add these environment variables in Cloudflare Pages:
