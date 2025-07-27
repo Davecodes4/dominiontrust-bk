@@ -92,11 +92,51 @@ backend/venv/
 ENV/
 env.bak/
 venv.bak/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
 
 # Django
 *.pyc
 backend/media/
 backend/staticfiles/
+backend/logs/
+backend/db.sqlite3
+backend/*.sqlite3
+backend/local_settings.py
+backend/celerybeat-schedule
+backend/celerybeat.pid
+backend/collected-static/
+
+# Django migrations (uncomment if you want to ignore migrations)
+# backend/*/migrations/
+
+# Django secret files and sensitive data
+backend/.env
+backend/.env.*
+backend/secret_key.txt
+
+# Django cache
+backend/cache/
+backend/.cache/
+
+# Django sessions
+backend/django_session/
+
+# Test coverage
+backend/.coverage
+backend/htmlcov/
+backend/.pytest_cache/
+backend/.tox/
+
+# Backup files
+*.bak
+*.backup
+*.sql
+backend/*.dump
 
 # Next.js
 frontend/.next/

@@ -10,7 +10,6 @@ sqlparse==0.5.3
 twilio==9.6.5
 
 # Production dependencies
-mysqlclient==2.2.0
 gunicorn==21.2.0
 whitenoise==6.5.0
 dj-database-url==2.1.0

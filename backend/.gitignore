@@ -1,0 +1,113 @@
+# Django Backend Specific .gitignore
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.development
+.env.staging
+
+# Database
+db.sqlite3
+*.sqlite3
+*.db
+
+# Django
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+
+# Static files
+staticfiles/
+static/
+collected-static/
+
+# Media files
+media/
+uploaded_files/
+
+# Logs
+logs/
+*.log
+django.log
+transaction_processing.log
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env_backend/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache
+.cache/
+cache/
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Local settings
+local_settings.py
+settings_local.py
+
+# Backup files
+*.bak
+*.backup
+*.sql
+*.dump
+
+# Deployment
+deployment_package/
+*.tar.gz
+*.zip
+
+# Secret key files
+secret_key.txt
+secrets.json
+
+# Session files
+django_session/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Package files
+*.egg-info/
+dist/
+build/
+
+# KYC Documents (sensitive)
+kyc_documents/
+documents/
+
+# Email templates cache
+email_cache/
+
+# Migration backups (if you create them)
+migrations_backup/
+
+# Webpack stats (if using)
+webpack-stats.json
+
+# Node modules (if any frontend assets)
+node_modules/

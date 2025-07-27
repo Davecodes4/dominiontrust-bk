@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
             >
               <StarIcon className="h-4 w-4 text-primary" />
               <span className="text-sm font-medium text-primary">
-                FDIC Insured • Mobile Banking • 24/7 Support
+                FDIC Insured • Award-Winning Mobile App • 4.75% APY Savings
               </span>
             </motion.div>
 
@@ -46,15 +46,35 @@ const Hero: React.FC = () => {
               className="space-y-4"
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Banking that
+                The bank that
                 <br />
-                <span className="text-primary">works for you</span>
+                <span className="text-primary">rewards your trust</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-lg">
-                Experience modern banking with no hidden fees, instant transfers, 
-                and tools that help you grow your money. Join thousands who've 
-                already made the switch.
+                Experience premium banking with industry-leading interest rates, no hidden fees, 
+                and award-winning customer service. Over 100,000 customers trust us with their financial future.
               </p>
+            </motion.div>
+
+            {/* Key Benefits */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+            >
+              <div className="flex items-center space-x-2">
+                <BanknotesIcon className="h-5 w-5 text-primary" />
+                <span className="text-sm font-medium text-foreground">No Monthly Fees</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <ChartBarIcon className="h-5 w-5 text-primary" />
+                <span className="text-sm font-medium text-foreground">4.75% APY Savings</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <ShieldCheckIcon className="h-5 w-5 text-primary" />
+                <span className="text-sm font-medium text-foreground">FDIC Insured</span>
+              </div>
             </motion.div>
 
             {/* CTA Buttons */}
@@ -64,13 +84,17 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
             >
-              <Button size="lg" className="flex items-center space-x-2">
-                <span>Open Account</span>
-                <ArrowRightIcon className="h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="lg">
-                Learn More
-              </Button>
+              <a href="/signup">
+                <Button size="lg" className="flex items-center space-x-2 w-full sm:w-auto">
+                  <span>Open Account Today</span>
+                  <ArrowRightIcon className="h-4 w-4" />
+                </Button>
+              </a>
+              <a href="/accounts">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                  Compare Accounts
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -96,8 +120,9 @@ const Hero: React.FC = () => {
                   <div className="space-y-6">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-sm text-muted-foreground">Total Balance</p>
-                        <p className="text-2xl font-bold text-foreground">$12,847.32</p>
+                        <p className="text-sm text-muted-foreground">Available Balance</p>
+                        <p className="text-2xl font-bold text-foreground">$24,847.32</p>
+                        <p className="text-sm text-green-600 font-medium">+$1,247 this month</p>
                       </div>
                       <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                         <BanknotesIcon className="h-6 w-6 text-primary" />
@@ -107,15 +132,15 @@ const Hero: React.FC = () => {
                     <div className="space-y-4">
                       <div className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg">
                         <div className="flex items-center space-x-3">
-                          <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                            <ArrowRightIcon className="h-4 w-4 text-primary-foreground" />
+                          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                            <ArrowRightIcon className="h-4 w-4 text-white rotate-180" />
                           </div>
                           <div>
-                            <p className="font-medium text-foreground">Direct Deposit</p>
-                            <p className="text-sm text-muted-foreground">Salary • Today</p>
+                            <p className="font-medium text-foreground">Payroll Deposit</p>
+                            <p className="text-sm text-muted-foreground">Tech Corp • Today</p>
                           </div>
                         </div>
-                        <p className="font-bold text-primary">+$3,200.00</p>
+                        <p className="font-bold text-green-600">+$3,200.00</p>
                       </div>
 
                       <div className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg">
@@ -124,11 +149,31 @@ const Hero: React.FC = () => {
                             <ChartBarIcon className="h-4 w-4 text-white" />
                           </div>
                           <div>
-                            <p className="font-medium text-foreground">Savings Growth</p>
-                            <p className="text-sm text-muted-foreground">This month</p>
+                            <p className="font-medium text-foreground">Interest Earned</p>
+                            <p className="text-sm text-muted-foreground">High-Yield Savings</p>
                           </div>
                         </div>
-                        <p className="font-bold text-blue-500">+$247.32</p>
+                        <p className="font-bold text-blue-500">+$94.73</p>
+                      </div>
+
+                      <div className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                            <StarIcon className="h-4 w-4 text-white" />
+                          </div>
+                          <div>
+                            <p className="font-medium text-foreground">Rewards Earned</p>
+                            <p className="text-sm text-muted-foreground">Cashback Card</p>
+                          </div>
+                        </div>
+                        <p className="font-bold text-purple-500">+$47.25</p>
+                      </div>
+                    </div>
+
+                    <div className="pt-4 border-t border-border">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">Credit Score</span>
+                        <span className="font-bold text-green-600">Excellent (785)</span>
                       </div>
                     </div>
                   </div>

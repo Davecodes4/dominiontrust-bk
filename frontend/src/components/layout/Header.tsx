@@ -11,10 +11,10 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: 'Features', href: '/features' },
-    { name: 'Security', href: '/security' },
+    { name: 'Accounts', href: '/accounts' },
+    { name: 'Credit Cards', href: '/credit-cards' },
+    { name: 'Loans', href: '/loans' },
     { name: 'About', href: '/about' },
-    { name: 'Dashboard', href: '/dashboard' },
     { name: 'Contact', href: '/contact' },
   ];
 

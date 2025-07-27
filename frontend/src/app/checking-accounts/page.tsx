@@ -23,54 +23,85 @@ const CheckingAccountsPage: React.FC = () => {
       name: 'Essential Checking',
       monthlyFee: '$0',
       minBalance: '$0',
-      description: 'Perfect for everyday banking with no monthly fees',
+      apy: '0.25% APY',
+      description: 'Perfect for everyday banking with no monthly fees and essential features',
       features: [
         'No monthly maintenance fee',
         'Free online and mobile banking',
-        'Free debit card',
-        'ATM fee reimbursement up to $10/month',
-        'Mobile check deposit',
-        'Overdraft protection available'
+        'Free Mastercard debit card',
+        'ATM fee reimbursement up to $15/month',
+        'Mobile check deposit up to $5,000/day',
+        'Overdraft protection available',
+        'Free person-to-person transfers',
+        'Free first order of checks'
+      ],
+      benefits: [
+        { text: 'Access to 55,000+ fee-free ATMs nationwide' },
+        { text: 'FDIC insured up to $250,000' },
+        { text: 'Real-time transaction alerts' },
+        { text: '24/7 customer support' }
       ],
       color: 'text-green-500',
       bgColor: 'bg-green-500/10',
-      popular: false
+      popular: false,
+      ctaText: 'Open Essential Account',
+      ctaLink: '/signup?account=essential'
     },
     {
-      name: 'Premium Checking',
+      name: 'Premier Checking',
       monthlyFee: '$0',
       minBalance: '$2,500',
-      description: 'Enhanced features for active banking customers',
+      apy: '0.50% APY',
+      description: 'Enhanced features and premium benefits for active banking customers',
       features: [
         'All Essential Checking features',
-        'Unlimited ATM fee reimbursement',
-        'Free wire transfers (domestic)',
-        'Free cashier\'s checks',
-        'Priority customer service',
-        'Higher daily limits',
-        'Free safe deposit box'
+        'Unlimited ATM fee reimbursement worldwide',
+        'Free wire transfers (domestic & international)',
+        'Free cashier\'s checks and money orders',
+        'Priority customer service with dedicated line',
+        'Higher daily ATM and purchase limits',
+        'Free safe deposit box (first year)',
+        'Identity theft protection'
+      ],
+      benefits: [
+        { text: 'Interest earned on checking balance' },
+        { text: 'Relationship banking with personal banker' },
+        { text: 'Preferred rates on loans and credit cards' },
+        { text: 'Exclusive investment opportunities' }
       ],
       color: 'text-blue-500',
       bgColor: 'bg-blue-500/10',
-      popular: true
+      popular: true,
+      ctaText: 'Open Premier Account',
+      ctaLink: '/signup?account=premier'
     },
     {
       name: 'Business Checking',
       monthlyFee: '$0',
       minBalance: '$1,000',
-      description: 'Tailored for small business banking needs',
+      apy: '0.15% APY',
+      description: 'Tailored for small business banking needs with comprehensive business tools',
       features: [
         'No monthly fee with minimum balance',
-        'Free business debit card',
+        'Free business debit card with rewards',
         'Online banking with business tools',
-        'Free mobile deposits',
-        'Integration with accounting software',
-        'Business customer support',
-        'Merchant services available'
+        'Free mobile deposits up to $10,000/day',
+        'Integration with QuickBooks & Xero',
+        'Dedicated business customer support',
+        'Merchant services available',
+        'Business credit line options'
+      ],
+      benefits: [
+        { text: 'Business credit building' },
+        { text: 'Cash management tools' },
+        { text: 'Multi-user access with permissions' },
+        { text: 'Detailed transaction reporting' }
       ],
       color: 'text-purple-500',
       bgColor: 'bg-purple-500/10',
-      popular: false
+      popular: false,
+      ctaText: 'Open Business Account',
+      ctaLink: '/signup?account=business'
     }
   ];
 

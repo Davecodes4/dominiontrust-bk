@@ -211,20 +211,24 @@ const Features: React.FC = () => {
                 Open your account in just 5 minutes.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="bg-white !text-green-600 hover:bg-white/90"
-                >
-                  Open Account Now
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-white text-white hover:bg-white hover:!text-green-600"
-                >
-                  Schedule a Demo
-                </Button>
+                <a href="/signup">
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    className="bg-white !text-green-600 hover:bg-white/90"
+                  >
+                    Open Account Now
+                  </Button>
+                </a>
+                <a href="/contact">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white text-white hover:bg-white hover:!text-green-600"
+                  >
+                    Schedule a Demo
+                  </Button>
+                </a>
               </div>
             </div>
           </Card>

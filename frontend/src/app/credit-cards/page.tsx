@@ -18,61 +18,100 @@ import Footer from '../../components/layout/Footer';
 const CreditCardsPage: React.FC = () => {
   const cards = [
     {
-      name: 'Dominion Trust Capital Cashback',
-      type: 'Cashback',
+      name: 'Dominion Rewards Mastercard',
+      type: 'Cashback Rewards',
       annualFee: '$0',
-      introAPR: '0% for 12 months',
+      introAPR: '0% for 15 months',
       regularAPR: '15.99% - 25.99%',
-      cashback: '2% on all purchases',
+      welcomeBonus: '$200 cash back after spending $500 in first 3 months',
+      cashback: 'Up to 3% cash back',
       features: [
-        '2% cashback on all purchases',
-        'No annual fee',
-        '0% intro APR for 12 months',
+        '3% cash back on dining and entertainment',
+        '2% cash back on groceries and gas',
+        '1% cash back on all other purchases',
+        'No annual fee forever',
+        '0% intro APR for 15 months on purchases',
         'No foreign transaction fees',
-        'Contactless payments',
-        'Extended warranty protection'
+        'Contactless payments with tap-to-pay',
+        'Extended warranty protection',
+        'Purchase protection insurance',
+        'Price protection guarantee'
+      ],
+      benefits: [
+        { text: 'Welcome bonus: $200 after spending $500' },
+        { text: 'No limit on cash back earned' },
+        { text: 'Cash back never expires' },
+        { text: 'Redeem for statement credit, gift cards, or travel' }
       ],
       color: 'text-green-500',
       bgColor: 'bg-green-500/10',
-      popular: true
+      popular: true,
+      ctaText: 'Apply Now',
+      ctaLink: '/signup?product=cashback-card'
     },
     {
-      name: 'Dominion Trust Capital Travel',
+      name: 'Dominion Travel Elite Card',
       type: 'Travel Rewards',
-      annualFee: '$95',
+      annualFee: '$95 (waived first year)',
       introAPR: '0% for 15 months',
       regularAPR: '16.99% - 26.99%',
-      cashback: '3X points on travel',
+      welcomeBonus: '60,000 bonus points after spending $3,000 in first 3 months',
+      cashback: '5X points on travel',
       features: [
-        '3X points on travel and dining',
+        '5X points on flights and hotels',
+        '3X points on dining and entertainment',
+        '2X points on gas and groceries',
         '1X points on all other purchases',
-        'Global entry/TSA PreCheck credit',
-        'Travel insurance included',
+        '$100 Global Entry/TSA PreCheck credit',
+        'Comprehensive travel insurance',
         'No foreign transaction fees',
-        'Priority boarding benefits'
+        'Priority boarding and check-in',
+        'Free checked bag on select airlines',
+        'Airport lounge access (2 visits/year)'
+      ],
+      benefits: [
+        { text: 'Annual $300 travel credit' },
+        { text: 'Trip cancellation/interruption insurance' },
+        { text: 'Rental car collision damage waiver' },
+        { text: 'Emergency assistance hotline' }
       ],
       color: 'text-blue-500',
       bgColor: 'bg-blue-500/10',
-      popular: false
+      popular: false,
+      ctaText: 'Apply for Travel Card',
+      ctaLink: '/signup?product=travel-card'
     },
     {
-      name: 'Dominion Trust Capital Business',
-      type: 'Business',
+      name: 'Dominion Business Advantage',
+      type: 'Business Credit',
       annualFee: '$0',
       introAPR: '0% for 12 months',
       regularAPR: '15.99% - 24.99%',
-      cashback: '1.5% on all purchases',
+      welcomeBonus: '$500 cash back after spending $3,000 in first 3 months',
+      cashback: 'Up to 5% cash back',
       features: [
-        '1.5% cashback on all purchases',
+        '5% cash back on office supply stores',
+        '3% cash back on business services',
+        '2% cash back on gas and restaurants',
+        '1% cash back on all other purchases',
         'No annual fee',
-        'Expense tracking tools',
-        'Employee cards at no cost',
-        'QuickBooks integration',
-        'Higher credit limits'
+        'Employee cards at no additional cost',
+        'Detailed expense tracking and reporting',
+        'QuickBooks and Xero integration',
+        'Higher credit limits for businesses',
+        'Dedicated business customer service'
+      ],
+      benefits: [
+        { text: 'Business credit building' },
+        { text: 'Expense categorization tools' },
+        { text: 'Year-end spending summaries' },
+        { text: 'No personal guarantee required' }
       ],
       color: 'text-purple-500',
       bgColor: 'bg-purple-500/10',
-      popular: false
+      popular: false,
+      ctaText: 'Apply for Business Card',
+      ctaLink: '/signup?product=business-card'
     }
   ];
 

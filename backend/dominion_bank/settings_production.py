@@ -13,6 +13,9 @@ load_dotenv(BASE_DIR / '.env.production')
 # Override settings for production
 DEBUG = False
 
+# Secret key from environment
+SECRET_KEY = os.getenv('SECRET_KEY')
+
 # Production security settings
 SECURE_SSL_REDIRECT = True
 SECURE_HSTS_SECONDS = 31536000  # 1 year
