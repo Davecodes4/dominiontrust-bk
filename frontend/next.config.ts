@@ -11,9 +11,8 @@ const nextConfig: NextConfig = {
     // your project has TypeScript errors.
     ignoreBuildErrors: true,
   },
-  // Temporarily disable static export due to dynamic routes
-  // Enable static export for Cloudflare Pages when dynamic routes are handled
-  // output: 'export',
+  // Disable static export for dynamic routes with Edge Runtime
+  // output: 'export', // Disabled due to Edge Runtime dynamic routes
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   images: {

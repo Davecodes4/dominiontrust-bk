@@ -403,8 +403,7 @@ function TransactionDetailContent() {
                     <div className="mt-2 pt-2 border-t border-border">
                       <p className="text-xs text-muted-foreground">
                         <span className="font-medium">Dominion Trust Capital</span> • 
-                        Routing: 123456789 • 
-                        Your Account
+                        
                       </p>
                     </div>
                   </div>
