@@ -1,0 +1,86 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Your 2FA Verification Code - Dominion Trust Capital{% endblock %}
+
+{% block content %}
+<div class="notification-badge badge-security">Security Code</div>
+
+<h1 class="title">Your Two-Factor Authentication Code</h1>
+<p class="subtitle">Hello {{ user_name }}, here's your verification code for secure access to your account.</p>
+
+<div style="text-align: center; margin: 32px 0;">
+    <div style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); color: white; padding: 24px; border-radius: 12px; display: inline-block; min-width: 200px;">
+        <p style="font-size: 14px; margin-bottom: 8px; opacity: 0.9;">Your Verification Code</p>
+        <p style="font-size: 32px; font-weight: 700; letter-spacing: 8px; margin: 0; font-family: 'Courier New', monospace;">
+            {{ verification_code }}
+        </p>
+    </div>
+</div>
+
+<div class="info-box">
+    <h4 style="font-size: 16px; font-weight: 600; color: #1e40af; margin-bottom: 12px;">Code Details</h4>
+    <div class="transaction-details">
+        <div class="detail-item">
+            <div class="detail-label">Purpose</div>
+            <div class="detail-value">{{ purpose|title }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Valid Until</div>
+            <div class="detail-value">{{ expires_at|date:"M d, Y g:i A" }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">IP Address</div>
+            <div class="detail-value">{{ ip_address|default:"Unknown" }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Location</div>
+            <div class="detail-value">{{ location|default:"Unknown" }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="info-box warning">
+    <h4 style="font-size: 14px; font-weight: 600; color: #92400e; margin-bottom: 8px;">⏰ Time Sensitive</h4>
+    <p style="font-size: 12px; color: #451a03; margin-bottom: 8px;">
+        This code will expire in 10 minutes for your security. Please use it immediately.
+    </p>
+    <p style="font-size: 12px; color: #451a03;">
+        If you didn't request this code, please secure your account immediately by changing your password.
+    </p>
+</div>
+
+<div style="background-color: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 16px; margin: 24px 0;">
+    <h4 style="font-size: 14px; font-weight: 600; color: #0369a1; margin-bottom: 8px;">🔐 Security Tips</h4>
+    <p style="font-size: 12px; color: #0c4a6e; margin-bottom: 8px;">
+        • Never share your 2FA codes with anyone, including bank staff
+    </p>
+    <p style="font-size: 12px; color: #0c4a6e; margin-bottom: 8px;">
+        • DominionTrust Bank will never ask for your 2FA code via phone or email
+    </p>
+    <p style="font-size: 12px; color: #0c4a6e; margin-bottom: 8px;">
+        • Always verify the website URL before entering your code
+    </p>
+    <p style="font-size: 12px; color: #0c4a6e;">
+        • Contact us immediately if you suspect unauthorized access
+    </p>
+</div>
+
+{% if backup_codes_available %}
+<div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin: 24px 0;">
+    <h4 style="font-size: 14px; font-weight: 600; color: #166534; margin-bottom: 8px;">💡 Backup Codes Available</h4>
+    <p style="font-size: 12px; color: #14532d;">
+        You have backup codes available if you can't receive this email. Use them from your secure storage.
+    </p>
+</div>
+{% endif %}
+
+<div style="text-align: center; margin: 32px 0;">
+    <p style="font-size: 12px; color: #6b7280; margin-bottom: 8px;">
+        Need help with two-factor authentication?
+    </p>
+    <a href="{{ help_link }}" style="font-size: 12px; color: #3b82f6; text-decoration: none;">
+        Visit our Security Help Center
+    </a>
+</div>
+{% endblock %} 
+ 

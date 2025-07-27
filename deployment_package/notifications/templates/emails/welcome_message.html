@@ -1,0 +1,81 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Welcome to Dominion Trust Capital{% endblock %}
+
+{% block content %}
+<div class="notification-badge badge-success">Welcome</div>
+
+<h1 class="title">Welcome to Dominion Trust Capital! 🎉</h1>
+<p class="subtitle">Hello {{ user_name }}, welcome to the future of banking. We're excited to have you as part of our community.</p>
+
+<div class="info-card">
+    <h3>🚀 You're All Set!</h3>
+    <p>Your account has been successfully created and is ready for use. Here's what you can do now:</p>
+    
+    <div style="margin: 20px 0;">
+        <div style="display: flex; align-items: center; margin: 12px 0;">
+            <div style="width: 32px; height: 32px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; color: white; font-weight: bold; font-size: 14px;">1</div>
+            <div>
+                <div style="font-weight: 600; color: #374151;">Complete Your Profile</div>
+                <div style="color: #6b7280; font-size: 14px;">Add your personal information and verify your identity</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; margin: 12px 0;">
+            <div style="width: 32px; height: 32px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; color: white; font-weight: bold; font-size: 14px;">2</div>
+            <div>
+                <div style="font-weight: 600; color: #374151;">Make Your First Deposit</div>
+                <div style="color: #6b7280; font-size: 14px;">Add funds to start using your account</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; margin: 12px 0;">
+            <div style="width: 32px; height: 32px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; color: white; font-weight: bold; font-size: 14px;">3</div>
+            <div>
+                <div style="font-weight: 600; color: #374151;">Request Your Card</div>
+                <div style="color: #6b7280; font-size: 14px;">Get a debit card for convenient spending</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; align-items: center; margin: 12px 0;">
+            <div style="width: 32px; height: 32px; background: #3b82f6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; color: white; font-weight: bold; font-size: 14px;">4</div>
+            <div>
+                <div style="font-weight: 600; color: #374151;">Explore Features</div>
+                <div style="color: #6b7280; font-size: 14px;">Discover transfers, payments, and more</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="info-card" style="background-color: #f0f9ff; border-left: 4px solid #0ea5e9;">
+    <h3>🎁 Welcome Bonus</h3>
+    <p>As a new customer, you'll enjoy:</p>
+    <ul style="margin: 8px 0; padding-left: 20px;">
+        <li>No monthly maintenance fees for the first 6 months</li>
+        <li>Free international transfers (first 3)</li>
+        <li>Priority customer support</li>
+        <li>Access to premium investment tools</li>
+    </ul>
+</div>
+
+<div class="info-card" style="background-color: #eff6ff; border-left: 4px solid #3b82f6;">
+    <h3>📱 Download Our Mobile App</h3>
+    <p>Get the most out of your banking experience with our award-winning mobile app. Available on iOS and Android.</p>
+    
+    <div style="margin-top: 16px; display: flex; gap: 12px;">
+        <a href="#" style="display: inline-block; padding: 8px 16px; background: #000; color: white; text-decoration: none; border-radius: 8px; font-size: 14px;">📱 Download for iOS</a>
+        <a href="#" style="display: inline-block; padding: 8px 16px; background: #34d399; color: white; text-decoration: none; border-radius: 8px; font-size: 14px;">🤖 Download for Android</a>
+    </div>
+</div>
+
+<div class="cta-section">
+    <a href="#" class="cta-button">Access Your Account</a>
+    <a href="#" class="cta-button-secondary">Contact Support</a>
+</div>
+
+<div style="text-align: center; margin-top: 32px; padding: 20px; background: #f9fafb; border-radius: 8px;">
+    <h4 style="color: #374151; margin-bottom: 8px;">Need Help Getting Started?</h4>
+    <p style="color: #6b7280; margin-bottom: 16px;">Our customer success team is here to help you make the most of your new account.</p>
+    <p style="color: #3b82f6; font-weight: 600;">📞 Call us: 1-800-DOMINION | 💬 Chat: Available 24/7</p>
+</div>
+{% endblock %}

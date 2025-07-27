@@ -1,0 +1,132 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Security Alert - Dominion Trust Capital{% endblock %}
+
+{% block content %}
+<div class="notification-badge badge-warning">Security Alert</div>
+
+<h1 class="title">🚨 Security Alert: {{ alert_type }}</h1>
+<p class="subtitle">Hello {{ user_name }}, we detected {{ alert_description }} on your account.</p>
+
+<div class="info-box warning">
+    <h4 style="font-size: 16px; font-weight: 600; color: #92400e; margin-bottom: 12px;">⚠️ Alert Details</h4>
+    <div class="transaction-details">
+        <div class="detail-item">
+            <div class="detail-label">Alert Type</div>
+            <div class="detail-value">{{ alert_type }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Date & Time</div>
+            <div class="detail-value">{{ event_time|date:"M d, Y g:i A" }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">IP Address</div>
+            <div class="detail-value">{{ ip_address|default:"Unknown" }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Location</div>
+            <div class="detail-value">{{ location|default:"Unknown" }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Device</div>
+            <div class="detail-value">{{ device_info|default:"Unknown" }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Risk Level</div>
+            <div class="detail-value">
+                {% if risk_level == 'high' %}
+                    <span style="color: #dc2626; font-weight: 600;">High Risk</span>
+                {% elif risk_level == 'medium' %}
+                    <span style="color: #ea580c; font-weight: 600;">Medium Risk</span>
+                {% else %}
+                    <span style="color: #65a30d; font-weight: 600;">Low Risk</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if was_you %}
+<div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px; margin: 24px 0;">
+    <h4 style="font-size: 14px; font-weight: 600; color: #166534; margin-bottom: 8px;">✅ Was This You?</h4>
+    <p style="font-size: 12px; color: #14532d; margin-bottom: 12px;">
+        If this was you, no action is needed. Your account remains secure.
+    </p>
+    <div style="text-align: center;">
+        <a href="{{ confirm_link }}" style="background-color: #16a34a; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 12px;">
+            Yes, This Was Me
+        </a>
+    </div>
+</div>
+{% endif %}
+
+<div style="background-color: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 16px; margin: 24px 0;">
+    <h4 style="font-size: 14px; font-weight: 600; color: #dc2626; margin-bottom: 8px;">🔒 If This Wasn't You</h4>
+    <p style="font-size: 12px; color: #7f1d1d; margin-bottom: 8px;">
+        Take immediate action to secure your account:
+    </p>
+    <p style="font-size: 12px; color: #7f1d1d; margin-bottom: 8px;">
+        • Change your password immediately
+    </p>
+    <p style="font-size: 12px; color: #7f1d1d; margin-bottom: 8px;">
+        • Enable two-factor authentication if not already active
+    </p>
+    <p style="font-size: 12px; color: #7f1d1d; margin-bottom: 8px;">
+        • Review your trusted devices and remove unknown ones
+    </p>
+    <p style="font-size: 12px; color: #7f1d1d; margin-bottom: 12px;">
+        • Contact our security team immediately
+    </p>
+    <div style="text-align: center;">
+        <a href="{{ secure_account_link }}" style="background-color: #dc2626; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600;">
+            Secure My Account Now
+        </a>
+    </div>
+</div>
+
+<div class="info-box">
+    <h4 style="font-size: 14px; font-weight: 600; color: #1e40af; margin-bottom: 8px;">🛡️ Security Recommendations</h4>
+    <p style="font-size: 12px; color: #374151; margin-bottom: 8px;">
+        • Use strong, unique passwords for your banking account
+    </p>
+    <p style="font-size: 12px; color: #374151; margin-bottom: 8px;">
+        • Enable two-factor authentication for additional security
+    </p>
+    <p style="font-size: 12px; color: #374151; margin-bottom: 8px;">
+        • Only access your account from trusted devices and networks
+    </p>
+    <p style="font-size: 12px; color: #374151; margin-bottom: 8px;">
+        • Be cautious of phishing attempts and suspicious emails
+    </p>
+    <p style="font-size: 12px; color: #374151;">
+        • Regularly review your account activity and statements
+    </p>
+</div>
+
+<div style="text-align: center; margin: 32px 0; padding: 16px; background-color: #f8fafc; border-radius: 8px;">
+    <h4 style="font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">Need Help?</h4>
+    <p style="font-size: 12px; color: #6b7280; margin-bottom: 12px;">
+        Our security team is available 24/7 to help protect your account
+    </p>
+    <div style="display: inline-block; margin: 0 8px;">
+        <a href="tel:{{ security_phone }}" style="color: #3b82f6; text-decoration: none; font-size: 12px;">
+            📞 {{ security_phone }}
+        </a>
+    </div>
+    <div style="display: inline-block; margin: 0 8px;">
+        <a href="mailto:{{ security_email }}" style="color: #3b82f6; text-decoration: none; font-size: 12px;">
+            ✉️ {{ security_email }}
+        </a>
+    </div>
+</div>
+
+<div style="text-align: center; margin: 24px 0;">
+    <p style="font-size: 10px; color: #9ca3af; margin-bottom: 4px;">
+        This is an automated security alert from DominionTrust Bank
+    </p>
+    <p style="font-size: 10px; color: #9ca3af;">
+        Alert ID: {{ alert_id }}
+    </p>
+</div>
+{% endblock %} 
+ 

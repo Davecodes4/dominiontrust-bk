@@ -1,0 +1,61 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Deposit Received - Dominion Trust Capital{% endblock %}
+
+{% block content %}
+<div class="notification-badge badge-success">Deposit Received</div>
+
+<h1 class="title">Deposit Successful! 💰</h1>
+<p class="subtitle">Hello {{ user_name }}, your deposit has been successfully processed and added to your account.</p>
+
+<div class="transaction-card">
+    <div class="transaction-header">
+        <div>
+            <div class="transaction-amount positive">
+                +${{ amount|floatformat:2 }}
+            </div>
+            <div style="font-size: 14px; color: #6b7280; margin-top: 4px;">
+                Deposit
+            </div>
+        </div>
+        <div>
+            <span class="status-badge status-completed">Completed</span>
+        </div>
+    </div>
+    
+    <div class="transaction-details">
+        <div class="detail-item">
+            <div class="detail-label">Reference</div>
+            <div class="detail-value">{{ reference }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Date</div>
+            <div class="detail-value">{{ date }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Account</div>
+            <div class="detail-value">****{{ account_number }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">New Balance</div>
+            <div class="detail-value">${{ new_balance|floatformat:2 }}</div>
+        </div>
+        {% if description %}
+        <div class="detail-item">
+            <div class="detail-label">Description</div>
+            <div class="detail-value">{{ description }}</div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="info-card">
+    <h3>💡 What's Next?</h3>
+    <p>Your funds are now available in your account. You can use them for transfers, payments, or withdrawals through our mobile app or online banking.</p>
+</div>
+
+<div class="cta-section">
+    <a href="#" class="cta-button">View Account</a>
+    <a href="#" class="cta-button-secondary">Download Statement</a>
+</div>
+{% endblock %}
