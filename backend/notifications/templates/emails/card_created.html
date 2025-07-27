@@ -1,0 +1,78 @@
+{% extends "emails/base.html" %}
+
+{% block title %}New Card Created - Dominion Trust Capital{% endblock %}
+
+{% block content %}
+<div class="notification-badge badge-success">Card Created</div>
+
+<h1 class="title">Your New Card is Ready! 💳</h1>
+<p class="subtitle">Hello {{ user_name }}, your new {{ card_brand|upper }} {{ card_type }} card has been successfully created.</p>
+
+<div class="transaction-card">
+    <div class="transaction-header">
+        <div>
+            <div style="font-size: 18px; font-weight: 600; color: #374151;">
+                {{ card_brand|upper }} {{ card_type|title }}
+            </div>
+            <div style="font-size: 14px; color: #6b7280; margin-top: 4px; font-family: 'Courier New', monospace;">
+                {{ card_number }}
+            </div>
+        </div>
+        <div>
+            <span class="status-badge status-completed">Active</span>
+        </div>
+    </div>
+    
+    <div class="transaction-details">
+        <div class="detail-item">
+            <div class="detail-label">Reference</div>
+            <div class="detail-value">{{ reference }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Created</div>
+            <div class="detail-value">{{ date }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Linked Account</div>
+            <div class="detail-value">****{{ account_number }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Creation Fee</div>
+            <div class="detail-value">${{ fee_amount|floatformat:2 }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Remaining Balance</div>
+            <div class="detail-value">${{ remaining_balance|floatformat:2 }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="info-card">
+    <h3>🎉 Your Card is Ready!</h3>
+    <p>Your new card is active and ready for use. You can start using it immediately for online purchases and contactless payments.</p>
+    
+    <h4 style="margin-top: 16px; color: #3b82f6;">Card Features:</h4>
+    <ul style="margin: 8px 0; padding-left: 20px;">
+        <li>Contactless payments</li>
+        <li>Online shopping</li>
+        <li>ATM withdrawals</li>
+        <li>Real-time transaction notifications</li>
+        <li>Advanced fraud protection</li>
+    </ul>
+</div>
+
+<div class="info-card" style="background-color: #eff6ff; border-left: 4px solid #3b82f6;">
+    <h3>🔒 Security Tips</h3>
+    <ul style="margin: 8px 0; padding-left: 20px;">
+        <li>Never share your card details with anyone</li>
+        <li>Enable transaction notifications</li>
+        <li>Report lost or stolen cards immediately</li>
+        <li>Use secure networks for online transactions</li>
+    </ul>
+</div>
+
+<div class="cta-section">
+    <a href="#" class="cta-button">View Card Details</a>
+    <a href="#" class="cta-button-secondary">Card Settings</a>
+</div>
+{% endblock %}

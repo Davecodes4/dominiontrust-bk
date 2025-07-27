@@ -1,0 +1,26 @@
+name = "dominion-trust-capital"
+compatibility_date = "2024-01-01"
+
+# Cloudflare Pages configuration for Next.js
+pages_build_output_dir = ".next"
+
+[build]
+command = "npm run build:cloudflare"
+cwd = ""
+watch_dir = "src"
+
+# Environment variables for production
+[env.production.vars]
+NODE_ENV = "production"
+NEXT_PUBLIC_API_URL = "https://api.dominiontrustcapital.com"
+NEXT_PUBLIC_APP_NAME = "Dominion Trust Capital"
+NEXT_PUBLIC_ENVIRONMENT = "production"
+NEXT_PUBLIC_COMPANY_NAME = "Dominion Trust Capital"
+NEXT_PUBLIC_COMPANY_EMAIL = "support@dominiontrustcapital.com"
+NEXT_PUBLIC_COMPANY_PHONE = "+1 (800) DOMINION"
+NEXT_PUBLIC_COMPANY_DOMAIN = "dominiontrustcapital.com"
+
+# Custom domain (update with your domain)
+# routes = [
+#   { pattern = "dominiontrustcapital.com/*", zone_name = "dominiontrustcapital.com" }
+# ]

@@ -1,0 +1,69 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Card Unblocked - Dominion Trust Capital{% endblock %}
+
+{% block content %}
+<div class="notification-badge badge-success">Card Unblocked</div>
+
+<h1 class="title">Card Successfully Unblocked ✅</h1>
+<p class="subtitle">Hello {{ user_name }}, your {{ card_brand|upper }} card ending in {{ card_number|slice:"-4:" }} has been successfully unblocked and is ready for use.</p>
+
+<div class="transaction-card">
+    <div class="transaction-header">
+        <div>
+            <div style="font-size: 18px; font-weight: 600; color: #059669;">
+                {{ card_brand|upper }} Card Active
+            </div>
+            <div style="font-size: 14px; color: #6b7280; margin-top: 4px; font-family: 'Courier New', monospace;">
+                ****-****-****-{{ card_number|slice:"-4:" }}
+            </div>
+        </div>
+        <div>
+            <span class="status-badge status-completed">Active</span>
+        </div>
+    </div>
+    
+    <div class="transaction-details">
+        <div class="detail-item">
+            <div class="detail-label">Date Unblocked</div>
+            <div class="detail-value">{{ date }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Unblocked By</div>
+            <div class="detail-value">{{ unblocked_by|default:"Account Holder" }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Linked Account</div>
+            <div class="detail-value">****{{ account_number }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="info-card">
+    <h3>🎉 Your Card is Ready!</h3>
+    <p>Your card has been successfully unblocked and is now active. You can use it for:</p>
+    <ul style="margin: 8px 0; padding-left: 20px;">
+        <li>Online and in-store purchases</li>
+        <li>ATM withdrawals</li>
+        <li>Contactless payments</li>
+        <li>Mobile wallet transactions</li>
+    </ul>
+</div>
+
+<div class="info-card" style="background-color: #eff6ff; border-left: 4px solid #3b82f6;">
+    <h3>🔒 Stay Secure</h3>
+    <p>To keep your card safe and prevent future blocks:</p>
+    <ul style="margin: 8px 0; padding-left: 20px;">
+        <li>Notify us before traveling abroad</li>
+        <li>Keep your PIN confidential</li>
+        <li>Monitor your account regularly</li>
+        <li>Report suspicious activity immediately</li>
+        <li>Enable transaction notifications</li>
+    </ul>
+</div>
+
+<div class="cta-section">
+    <a href="#" class="cta-button">View Card Details</a>
+    <a href="#" class="cta-button-secondary">Transaction History</a>
+</div>
+{% endblock %}

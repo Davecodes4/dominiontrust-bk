@@ -1,0 +1,21 @@
+# Handle client-side routing for SPA
+/*    /index.html   200
+
+# Fallback for specific routes
+/dashboard/*    /dashboard/index.html   200
+/accounts/*    /accounts/index.html   200
+/transfer/*    /transfer/index.html   200
+/features/*    /features/index.html   200
+/security/*    /security/index.html   200
+/loans/*    /loans/index.html   200
+/about/*    /about/index.html   200
+/contact/*    /contact/index.html   200
+/help-center/*    /help-center/index.html   200
+/savings-accounts/*    /savings-accounts/index.html   200
+
+# API redirects to backend
+/api/*  https://api.dominiontrustcapital.com/api/:splat  200
+
+# Legacy redirects
+/dominion-trust/*    /:splat   301
+/bank/*    /:splat   301

@@ -1,0 +1,57 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [ main, master ]
+    paths: [ 'frontend/**' ]
+  pull_request:
+    branches: [ main, master ]
+    paths: [ 'frontend/**' ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./frontend
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: './frontend/package-lock.json'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build application
+      env:
+        NODE_ENV: production
+        NEXT_PUBLIC_API_URL: https://api.dominiontrustcapital.com
+        NEXT_PUBLIC_APP_NAME: "Dominion Trust Capital"
+        NEXT_PUBLIC_ENVIRONMENT: production
+        NEXT_PUBLIC_COMPANY_NAME: "Dominion Trust Capital"
+        NEXT_PUBLIC_COMPANY_EMAIL: support@dominiontrustcapital.com
+        NEXT_PUBLIC_COMPANY_PHONE: "+1 (800) DOMINION"
+        NEXT_PUBLIC_COMPANY_DOMAIN: dominiontrustcapital.com
+        NEXT_PUBLIC_ENABLE_ANALYTICS: true
+        NEXT_PUBLIC_ENABLE_REGISTRATION: true
+        NEXT_PUBLIC_ENABLE_TRANSFERS: true
+      run: npm run build:production
+    
+    - name: Deploy to Cloudflare Pages
+      uses: cloudflare/pages-action@v1
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        projectName: dominion-trust-capital
+        directory: ./frontend/.next
+        gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        wranglerVersion: '3'

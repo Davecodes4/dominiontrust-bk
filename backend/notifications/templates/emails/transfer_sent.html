@@ -1,0 +1,73 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Transfer Sent - Dominion Trust Capital{% endblock %}
+
+{% block content %}
+<div class="notification-badge badge-info">Transfer Sent</div>
+
+<h1 class="title">Transfer Initiated 📤</h1>
+<p class="subtitle">Hello {{ user_name }}, your transfer has been successfully sent and is being processed.</p>
+
+<div class="transaction-card">
+    <div class="transaction-header">
+        <div>
+            <div class="transaction-amount negative">
+                -${{ amount|floatformat:2 }}
+            </div>
+            <div style="font-size: 14px; color: #6b7280; margin-top: 4px;">
+                Transfer to {{ recipient_name }}
+            </div>
+        </div>
+        <div>
+            <span class="status-badge status-confirmed">Processing</span>
+        </div>
+    </div>
+    
+    <div class="transaction-details">
+        <div class="detail-item">
+            <div class="detail-label">Reference</div>
+            <div class="detail-value">{{ reference }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Date</div>
+            <div class="detail-value">{{ date }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">From Account</div>
+            <div class="detail-value">****{{ account_number }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Recipient</div>
+            <div class="detail-value">{{ recipient_name }}</div>
+        </div>
+        {% if recipient_bank %}
+        <div class="detail-item">
+            <div class="detail-label">Recipient Bank</div>
+            <div class="detail-value">{{ recipient_bank }}</div>
+        </div>
+        {% endif %}
+        {% if transfer_type %}
+        <div class="detail-item">
+            <div class="detail-label">Transfer Type</div>
+            <div class="detail-value">{{ transfer_type|title }}</div>
+        </div>
+        {% endif %}
+        {% if description %}
+        <div class="detail-item">
+            <div class="detail-label">Description</div>
+            <div class="detail-value">{{ description }}</div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="info-card">
+    <h3>⏱️ Processing Timeline</h3>
+    <p>Your transfer is being processed. Depending on the destination, it may take 1-5 business days to complete. You'll receive another notification once the transfer is completed.</p>
+</div>
+
+<div class="cta-section">
+    <a href="#" class="cta-button">Track Transfer</a>
+    <a href="#" class="cta-button-secondary">View Account</a>
+</div>
+{% endblock %}
