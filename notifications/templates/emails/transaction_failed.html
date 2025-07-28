@@ -1,0 +1,71 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Transaction Failed - Dominion Trust Capital{% endblock %}
+
+{% block content %}
+<div class="notification-badge badge-error">Transaction Failed</div>
+
+<h1 class="title">Transaction Could Not Be Completed ❌</h1>
+<p class="subtitle">Hello {{ user_name }}, unfortunately your {{ transaction_type|lower }} could not be processed.</p>
+
+<div class="transaction-card">
+    <div class="transaction-header">
+        <div>
+            <div class="transaction-amount" style="color: #dc2626;">
+                ${{ amount|floatformat:2 }}
+            </div>
+            <div style="font-size: 14px; color: #6b7280; margin-top: 4px;">
+                {{ transaction_type }} Failed
+            </div>
+        </div>
+        <div>
+            <span class="status-badge status-failed">Failed</span>
+        </div>
+    </div>
+    
+    <div class="transaction-details">
+        <div class="detail-item">
+            <div class="detail-label">Reference</div>
+            <div class="detail-value">{{ reference }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Date</div>
+            <div class="detail-value">{{ date }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Account</div>
+            <div class="detail-value">****{{ account_number }}</div>
+        </div>
+        {% if failure_reason %}
+        <div class="detail-item">
+            <div class="detail-label">Reason</div>
+            <div class="detail-value">{{ failure_reason }}</div>
+        </div>
+        {% endif %}
+        {% if description %}
+        <div class="detail-item">
+            <div class="detail-label">Description</div>
+            <div class="detail-value">{{ description }}</div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="info-card" style="background-color: #fef2f2; border-left: 4px solid #dc2626;">
+    <h3>🔍 What Happened?</h3>
+    <p>Your transaction was declined due to {{ failure_reason|default:"insufficient funds or validation issues" }}. If you believe this is an error, please contact our support team.</p>
+    
+    <h4 style="margin-top: 16px; color: #dc2626;">Common Solutions:</h4>
+    <ul style="margin: 8px 0; padding-left: 20px;">
+        <li>Check your account balance</li>
+        <li>Verify recipient information</li>
+        <li>Ensure your account is in good standing</li>
+        <li>Contact support if you need assistance</li>
+    </ul>
+</div>
+
+<div class="cta-section">
+    <a href="#" class="cta-button">Retry Transaction</a>
+    <a href="#" class="cta-button-secondary">Contact Support</a>
+</div>
+{% endblock %}

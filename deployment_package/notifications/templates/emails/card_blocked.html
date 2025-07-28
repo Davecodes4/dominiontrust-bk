@@ -1,0 +1,79 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Card Blocked - Dominion Trust Capital{% endblock %}
+
+{% block content %}
+<div class="notification-badge badge-warning">Card Blocked</div>
+
+<h1 class="title">Card Temporarily Blocked 🚫</h1>
+<p class="subtitle">Hello {{ user_name }}, your {{ card_brand|upper }} card ending in {{ card_number|slice:"-4:" }} has been temporarily blocked for security reasons.</p>
+
+<div class="transaction-card">
+    <div class="transaction-header">
+        <div>
+            <div style="font-size: 18px; font-weight: 600; color: #dc2626;">
+                {{ card_brand|upper }} Card Blocked
+            </div>
+            <div style="font-size: 14px; color: #6b7280; margin-top: 4px; font-family: 'Courier New', monospace;">
+                ****-****-****-{{ card_number|slice:"-4:" }}
+            </div>
+        </div>
+        <div>
+            <span class="status-badge" style="background-color: #fef3c7; color: #92400e;">Blocked</span>
+        </div>
+    </div>
+    
+    <div class="transaction-details">
+        <div class="detail-item">
+            <div class="detail-label">Date Blocked</div>
+            <div class="detail-value">{{ date }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Reason</div>
+            <div class="detail-value">{{ block_reason|default:"Security precaution" }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Linked Account</div>
+            <div class="detail-value">****{{ account_number }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="info-card" style="background-color: #fefbf3; border-left: 4px solid #f59e0b;">
+    <h3>🔒 Why Was My Card Blocked?</h3>
+    <p>Your card was blocked as a security precaution. Common reasons include:</p>
+    <ul style="margin: 8px 0; padding-left: 20px;">
+        <li>Unusual spending patterns detected</li>
+        <li>Multiple failed PIN attempts</li>
+        <li>Suspicious online activity</li>
+        <li>Lost or stolen card report</li>
+        <li>Security system alert</li>
+    </ul>
+</div>
+
+<div class="info-card">
+    <h3>✅ How to Unblock Your Card</h3>
+    <p>You can easily unblock your card through:</p>
+    <ul style="margin: 8px 0; padding-left: 20px;">
+        <li><strong>Mobile App:</strong> Go to Cards → Select your card → Unblock</li>
+        <li><strong>Online Banking:</strong> Card Management → Unblock Card</li>
+        <li><strong>Phone:</strong> Call our 24/7 support line</li>
+        <li><strong>SMS:</strong> Text UNBLOCK to our service number</li>
+    </ul>
+</div>
+
+<div class="info-card" style="background-color: #fee2e2; border-left: 4px solid #dc2626;">
+    <h3>⚠️ If You Didn't Block This Card</h3>
+    <p>If you didn't request this block and believe it's in error, please contact us immediately:</p>
+    <ul style="margin: 8px 0; padding-left: 20px;">
+        <li>Call our fraud hotline: <strong>1-800-FRAUD-24</strong></li>
+        <li>Report through the mobile app</li>
+        <li>Visit a branch location</li>
+    </ul>
+</div>
+
+<div class="cta-section">
+    <a href="#" class="cta-button">Unblock Card</a>
+    <a href="#" class="cta-button-secondary">Contact Support</a>
+</div>
+{% endblock %}

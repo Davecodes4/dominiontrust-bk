@@ -1,0 +1,81 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Activate Your Account - Dominion Trust Capital{% endblock %}
+
+{% block content %}
+<div class="notification-badge badge-info">Account Activation</div>
+
+<h1 class="title">Welcome to Dominion Trust Capital! 🎉</h1>
+<p class="subtitle">Hello {{ user_name }}, thank you for choosing Dominion Trust Capital. Please activate your account to get started.</p>
+
+<div class="info-box">
+    <h4 style="font-size: 16px; font-weight: 600; color: #1e40af; margin-bottom: 12px;">Your Account Details</h4>
+    <div class="transaction-details">
+        <div class="detail-item">
+            <div class="detail-label">Account Holder</div>
+            <div class="detail-value">{{ user_name }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Email Address</div>
+            <div class="detail-value">{{ email }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Account Created</div>
+            <div class="detail-value">{{ created_at|date:"M d, Y" }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Account Type</div>
+            <div class="detail-value">Personal Banking</div>
+        </div>
+    </div>
+</div>
+
+<div style="text-align: center; margin: 32px 0;">
+    <a href="{{ activation_link }}" class="cta-button" style="font-size: 16px; padding: 16px 32px;">
+        Activate My Account
+    </a>
+</div>
+
+<div class="info-box">
+    <h4 style="font-size: 14px; font-weight: 600; color: #1e40af; margin-bottom: 8px;">What's Next?</h4>
+    <p style="font-size: 14px; color: #374151; margin-bottom: 8px;">
+        • Click the activation button above to verify your email address
+    </p>
+    <p style="font-size: 14px; color: #374151; margin-bottom: 8px;">
+        • Complete your profile setup and KYC verification
+    </p>
+    <p style="font-size: 14px; color: #374151; margin-bottom: 8px;">
+        • Set up your security preferences and two-factor authentication
+    </p>
+    <p style="font-size: 14px; color: #374151;">
+        • Start banking with confidence and security
+    </p>
+</div>
+
+<div class="info-box warning">
+    <h4 style="font-size: 14px; font-weight: 600; color: #92400e; margin-bottom: 8px;">⏰ Important</h4>
+    <p style="font-size: 12px; color: #451a03;">
+        This activation link will expire in 24 hours. If you don't activate your account within this time, you'll need to register again.
+    </p>
+</div>
+
+<div style="background-color: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 16px; margin: 24px 0;">
+    <h4 style="font-size: 14px; font-weight: 600; color: #0369a1; margin-bottom: 8px;">🔐 Security First</h4>
+    <p style="font-size: 12px; color: #0c4a6e; margin-bottom: 8px;">
+        At Dominion Trust Capital, your security is our top priority. We use bank-level encryption and security measures to protect your information.
+    </p>
+    <p style="font-size: 12px; color: #0c4a6e;">
+        We recommend enabling two-factor authentication once your account is activated for additional security.
+    </p>
+</div>
+
+<div style="text-align: center; margin: 24px 0;">
+    <p style="font-size: 12px; color: #6b7280; margin-bottom: 8px;">
+        If the button above doesn't work, copy and paste this link into your browser:
+    </p>
+    <p style="font-size: 12px; color: #3b82f6; word-break: break-all;">
+        {{ activation_link }}
+    </p>
+</div>
+{% endblock %} 
+ 

@@ -1,0 +1,97 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Transaction Completed - Dominion Trust Capital{% endblock %}
+
+{% block content %}
+<div class="notification-badge badge-success">Transaction Completed</div>
+
+<h1 class="title">Transaction Successful! ✅</h1>
+<p class="subtitle">Hello {{ user_name }}, your {{ transaction_type|lower }} has been successfully completed.</p>
+
+<div class="transaction-card">
+    <div class="transaction-header">
+        <div>
+            <div class="transaction-amount {% if transaction_type == 'Deposit' %}positive{% else %}negative{% endif %}">
+                {% if transaction_type == 'Deposit' %}+{% else %}-{% endif %}${{ amount|floatformat:2 }}
+            </div>
+            <div style="font-size: 14px; color: #6b7280; margin-top: 4px;">
+                {{ transaction_type }}
+            </div>
+        </div>
+        <div>
+            <span class="status-badge status-completed">Completed</span>
+        </div>
+    </div>
+    
+    <div class="transaction-details">
+        <div class="detail-item">
+            <div class="detail-label">Reference</div>
+            <div class="detail-value">{{ reference }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Completed</div>
+            <div class="detail-value">{{ created_at|date:"M d, Y H:i" }}</div>
+        </div>
+        {% if from_account %}
+        <div class="detail-item">
+            <div class="detail-label">From Account</div>
+            <div class="detail-value">****{{ from_account|slice:"-4:" }}</div>
+        </div>
+        {% endif %}
+        {% if to_account %}
+        <div class="detail-item">
+            <div class="detail-label">To Account</div>
+            <div class="detail-value">****{{ to_account|slice:"-4:" }}</div>
+        </div>
+        {% endif %}
+        {% if total_amount != amount %}
+        <div class="detail-item">
+            <div class="detail-label">Amount</div>
+            <div class="detail-value">${{ amount|floatformat:2 }}</div>
+        </div>
+        <div class="detail-item">
+            <div class="detail-label">Total (incl. fees)</div>
+            <div class="detail-value">${{ total_amount|floatformat:2 }}</div>
+        </div>
+        {% endif %}
+        {% if description %}
+        <div class="detail-item" style="grid-column: 1 / -1;">
+            <div class="detail-label">Description</div>
+            <div class="detail-value">{{ description }}</div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="info-box">
+    <h4 style="font-size: 14px; font-weight: 600; color: #1e40af; margin-bottom: 8px;">Transaction Summary</h4>
+    <p style="font-size: 14px; color: #374151; margin-bottom: 8px;">
+        • Your {{ transaction_type|lower }} has been processed successfully
+    </p>
+    <p style="font-size: 14px; color: #374151; margin-bottom: 8px;">
+        • Your account balance has been updated
+    </p>
+    <p style="font-size: 14px; color: #374151;">
+        • You can view the updated balance in your account dashboard
+    </p>
+</div>
+
+<div style="text-align: center;">
+    <a href="#" class="cta-button">View Account Balance</a>
+</div>
+
+<div style="background-color: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 16px; margin: 24px 0;">
+    <h4 style="font-size: 14px; font-weight: 600; color: #0369a1; margin-bottom: 8px;">📧 Keep this email for your records</h4>
+    <p style="font-size: 12px; color: #0c4a6e;">
+        This email serves as your transaction receipt. We recommend saving it for your financial records.
+    </p>
+</div>
+
+<div class="info-box warning">
+    <h4 style="font-size: 14px; font-weight: 600; color: #92400e; margin-bottom: 8px;">Security Reminder</h4>
+    <p style="font-size: 12px; color: #451a03;">
+        If you notice any unauthorized transactions, please contact us immediately. Monitor your account regularly for any suspicious activity.
+    </p>
+</div>
+{% endblock %} 
+ 
