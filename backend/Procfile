@@ -1,0 +1,1 @@
+web: gunicorn dominion_bank.wsgi --log-file - 
